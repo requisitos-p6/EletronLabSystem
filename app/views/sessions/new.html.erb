@@ -1,0 +1,15 @@
+<% if logged_in? %>
+  <h1> Olá, <%= current_user.name %> !</h1>
+<% else %>
+<%	provide(:title,	"Entrar")	%>
+ <div class="col-md-6	col-md-offset-3">
+				<%=	form_for(:session,	url:	login_path)	do	|f|	%>
+						<%=	f.label	:nickname%>
+						<%=	f.text_field	:nickname,	class:	'form-control'	%>
+						<%=	f.label	:password	%>
+						<%=	f.password_field	:password,	class:	'form-control'	%>
+						<%=	f.submit	"Log	in",	class:	"btn	btn-primary"	%>
+				<%	end	%>
+				<p>Não possui cadastro? <%=	link_to	"Cadastre-se!",	signup_path	%></p>
+		</div>
+<% end %>
