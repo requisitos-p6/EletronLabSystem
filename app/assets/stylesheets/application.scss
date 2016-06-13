@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+/*Add materialize.*/
+
+@import "materialize";
+
+/*Change color scheme.*/
+@import "materialize/components/color";
+$primary-color: color("blue", "lighten-2") !default;
+@import 'materialize';
+
+/*Change Range.*/
+@import "materialize/extras/nouislider";
