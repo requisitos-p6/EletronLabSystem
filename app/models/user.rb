@@ -1,6 +1,11 @@
 class User < ActiveRecord::Base
 
 	require "cpf_cnpj"
+	require "bcrypt"
+
+	has_secure_password
+
+	before_save	{	self.email	=	email.downcase	}
 
 	VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :name, presence: true, length:{maximum: 60}
@@ -10,11 +15,16 @@ class User < ActiveRecord::Base
   uniqueness: { case_sensitive: false }
   validates :address, presence:true
 	validate :validate_cpf
+	validates :password, length:{minimum: 6}
 
 	def validate_cpf
 		unless CPF.valid?(self.cpf)
 			errors.add(:cpf, "inválido")
 		end
 	end
+
+	def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Password.create(string, cost: cost)
+  end
 
 end
