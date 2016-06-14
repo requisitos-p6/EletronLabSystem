@@ -17,4 +17,8 @@ module SessionsHelper
         redirect_to_back(users_path) unless user.id == current_user.id or current_user.admin?
     end
 
+    def verify_admin_permission
+        redirect_to(root_path) unless current_user.admin?
+    end
+
 end
