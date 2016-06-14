@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 	require "cpf_cnpj"
 	require "bcrypt"
 
+    belongs_to :profile
+
 	has_secure_password
 
 	before_save	{	self.email	=	email.downcase	}

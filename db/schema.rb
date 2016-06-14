@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160614142319) do
+ActiveRecord::Schema.define(version: 20160614224009) do
 
   create_table "profiles", force: :cascade do |t|
     t.string   "name"
@@ -32,6 +32,9 @@ ActiveRecord::Schema.define(version: 20160614142319) do
     t.boolean  "admin",           default: false
     t.string   "password_digest"
     t.boolean  "approval",        default: false
+    t.integer  "profile_id"
   end
+
+  add_index "users", ["profile_id"], name: "index_users_on_profile_id"
 
 end

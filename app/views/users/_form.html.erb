@@ -27,6 +27,14 @@
     <%= f.label(:address, "Endereço") %><br>
     <%= f.text_field :address %>
   </div>
+
+  <% unless @user.approval? %>
+    <div class="browser-default">
+      <%= f.label(:address, "Perfil") %>
+      <%= f.collection_select :profile_id, @profiles, :id, :name, { prompt: "Escolha um Perfil" }, class: "browser-default" %>
+    </div>
+  <% end %>
+
   <div class="field">
     <%= f.label(:nickname, "Nickname") %><br>
     <%= f.text_field :nickname %>

@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    @profiles = Profile.all
   end
 
   def approve
