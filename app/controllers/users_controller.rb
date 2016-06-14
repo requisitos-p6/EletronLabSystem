@@ -17,6 +17,12 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def approve
+    @user = User.find(params[:id])
+    @user.update_attribute(:approval, true)
+    @user.save
+  end
+
   # GET /users/1/edit
   def edit
   end
@@ -28,7 +34,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        log_in @user
+        login @user
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else

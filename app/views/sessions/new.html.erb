@@ -1,5 +1,8 @@
-<% if logged_in? %>
-  <h1> Olá, <%= current_user.name %> !</h1>
+<% if logged_in? and @current_user.approval == false %>
+  <h1> Olá, <%= current_user.name %> ! Aguarde a aprovação do seu cadastro!</h1>
+  <%= link_to 'Logout', logout_path, method: :destroy %>
+<% elsif logged_in? and @current_user.approval == true %>
+ 	<h1> Olá, <%= current_user.name %> !</h1>
   <%= link_to 'Logout', logout_path, method: :destroy %>
 <% else %>
 <%	provide(:title,	"Entrar")	%>
@@ -11,6 +14,6 @@
 						<%=	f.password_field	:password,	class:	'form-control'	%>
 						<%=	f.submit	"Log	in",	class:	"btn	btn-primary"	%>
 				<%	end	%>
-				<p>Não possui cadastro? <%=	link_to	"Cadastre-se!",	signup_path	%></p>
+				<p>Não possui cadastro? <%=	link_to	"Cadastre-se!",	singup_path	%></p>
 		</div>
 <% end %>

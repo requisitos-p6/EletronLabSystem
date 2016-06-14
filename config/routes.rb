@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
 
-  get 'signup' => 'users#new'
+  get 'singup' => 'users#new'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   post 'logout' => 'sessions#destroy'
 
   resources :users
+
+  resources :users do
+    member do
+      get 'approve' => 'users#approve'
+    end
+  end
 
   root 'users#index'
   # The priority is based upon order of creation: first created -> highest priority.

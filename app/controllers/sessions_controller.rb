@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   	user = User.find_by(nickname: params[:session][:nickname])
 				if user && user.authenticate(params[:session][:password])
 						login user
-						redirect_to user				
+						redirect_to login_path			
 				else
 						flash[:danger] = 'Senha ou Nickname inválidos'
 						render	'new'
