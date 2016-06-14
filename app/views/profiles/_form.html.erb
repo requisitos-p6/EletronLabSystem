@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name, "Nome" %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :admin %><br>
     <%= f.check_box :admin %>
+    <%= f.label 'admin', "Possui direitos de administrador", id:'admin' %>
   </div>
   <div class="actions">
     <%= f.submit %>
