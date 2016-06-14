@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get   'about'   =>  'static_pages'
   get   'parallax' =>  'static_pages'
   
-  #root 'users#index'
+  get "user/index" => "users#index"
+  #get 'users#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
