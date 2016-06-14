@@ -1,5 +1,6 @@
 <% if logged_in? %>
   <h1> Olá, <%= current_user.name %> !</h1>
+  <%= link_to 'Logout', logout_path, method: :destroy %>
 <% else %>
 <%	provide(:title,	"Entrar")	%>
  <div class="col-md-6	col-md-offset-3">
