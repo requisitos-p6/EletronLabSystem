@@ -5,20 +5,22 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   post 'logout' => 'sessions#destroy'
 
-  resources :users
-
   resources :users do
     member do
       get 'approve' => 'users#approve'
     end
   end
 
-  root 'users#index'
+  root 'static_pages#home'
+
+  get   'alerts' =>  'static_pages'
+  get   'about'   =>  'static_pages'
+  get   'parallax' =>  'static_pages'
+
+  get "user/index" => "users#index"
+  #get 'users#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

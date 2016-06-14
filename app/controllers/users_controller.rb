@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :verify_user_permission, only: [:destroy, :edit, :index]
+  before_action :verify_user_permission, only: [:destroy, :edit]
+  before_action :verify_admin_permission, only: [:index]
 
   # GET /users
   # GET /users.json

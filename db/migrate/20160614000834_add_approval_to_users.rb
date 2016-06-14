@@ -1,5 +1,5 @@
 class AddApprovalToUsers < ActiveRecord::Migration
   def change
-    change_column_default(:users, :approval, false)
+    add_column :users, :approval, :boolean
   end
 end
