@@ -43,6 +43,14 @@
     <%= f.label(:cpf, "CPF/CNPJ") %><br>
     <%= f.text_field :cpf %>
   </div>
+
+  <div>
+    <%= f.label :validation_image, "Foto de Validação de Usuário" %>
+  </div>
+  <span class="btn btn-default btn-file">
+    Browse<%= f.file_field :validation_image, class: 'form-control' %>
+  </span>
+
   <div class="field">
     <%= f.label(:password, "Senha") %><br>
     <%= f.password_field :password %>
