@@ -33,6 +33,11 @@
  * Made By MaterializeCSS.com
  */
 
+/*Add shadow to h1 fonts.*/
+h1 {
+    text-shadow: 2px 2px #88C665;
+}
+
 nav ul a,
 nav .brand-logo {
   color: #444;
