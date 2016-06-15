@@ -1,19 +1,39 @@
-<% if logged_in? and @current_user.approval == false %>
-  <h1> Olá, <%= current_user.name %> ! Aguarde a aprovação do seu cadastro!</h1>
-  <%= link_to 'Logout', logout_path, method: :destroy %>
-<% elsif logged_in? and @current_user.approval == true %>
- 	<h1> Olá, <%= current_user.name %> !</h1>
-  <%= link_to 'Logout', logout_path, method: :destroy %>
-<% else %>
-<%	provide(:title,	"Entrar")	%>
- <div class="col-md-6	col-md-offset-3">
-				<%=	form_for(:session,	url:	login_path)	do	|f|	%>
-						<%=	f.label	:nickname%>
-						<%=	f.text_field	:nickname,	class:	'form-control'	%>
-						<%=	f.label	:password	%>
-						<%=	f.password_field	:password,	class:	'form-control'	%>
-						<%=	f.submit	"Log	in",	class:	"btn	btn-primary"	%>
-				<%	end	%>
-				<p>Não possui cadastro? <%=	link_to	"Cadastre-se!",	singup_path	%></p>
+<% provide(:title, "About") %>
+<br><br><br>	
+<div class="container">
+	<center>
+		<h5> Para fazer o login, digite seu nome de usuário e senha. </h5>
+	</center>
+	<% if logged_in? and @current_user.approval == false %>
+		<h1>
+			Olá, <%= current_user.name %> ! Aguarde a aprovação do seu cadastro!
+		</h1>
+	  <%= link_to 'Logout', logout_path, method: :destroy %>
+	<% elsif logged_in? and @current_user.approval == true %>
+	 	<h1> Olá, <%= current_user.name %> !</h1>
+	  <%= link_to 'Logout', logout_path, method: :destroy %>
+	<% else %>
+		<%	provide(:title,	"Entrar")	%>
+			<%=	form_for(:session,	url:	login_path)	do	|f|	%>
+			<div class="row">
+		    <form class="col s12">
+		        <div class="input-field col s6">
+		          <i class="material-icons prefix">account_circle</i>
+							<%=	f.text_field	:nickname,	class:	'form-control'	%>
+		        </div>
+		    </form>
+		    <form class="col s12">
+	        	<div class="input-field col s6">
+		    			<i class="material-icons prefix">vpn_key</i>
+		    			<%=	f.password_field	:password,	class:	'form-control'	%>
+		    		</div>
+		    </form>
+	    </div>
+	    
+				<%=	f.submit	"Log	in",	class:	"btn	btn-primary"	%>			
+			<%	end	%>
+			<p>Não possui cadastro? <%=	link_to	"Cadastre-se!",	singup_path	%></p>
+			<br><br><br><br>
 		</div>
-<% end %>
+	<% end %>
+</div>
