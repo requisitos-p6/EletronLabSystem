@@ -1,47 +1,50 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @user.name %>
-</p>
 
-<p>
-  <strong>E-mail:</strong>
-  <%= @user.email %>
-</p>
+<div class="buttons-questions">
+  <% if current_user.admin? || current_user.id == @user.id %>
+    <%= link_to "Editar", edit_user_path, class: "btn waves-effect waves-light light-green btn-edit" %>
+    <%= link_to "Excluir", user_path, :method => :delete,  class: "btn waves-effect waves-light grey btn-edit", data: { confirm: "Você tem certeza que deseja excluir seu usuário?" } %>
+  <% end %>
+</div>
 
-<p>
-  <strong>Data de Nascimento:</strong>
-  <%= @user.birthday %>
-</p>
+<h1><%= @user.name %></h1>
 
-<p>
-  <strong>Endereço:</strong>
-  <%= @user.address %>
-</p>
+<table class="striped">
+  <tbody>
+    <tr>
+      <td><b>Usuário:</b></td><td><%= @user.nickname %></td>
+    </tr>
 
-<p>
-  <strong>Nome de usuário:</strong>
-  <%= @user.nickname %>
-</p>
+    <tr>
+      <td><b>E-mail:</b></td><td><%= @user.email %></td>
+    </tr>
 
-<p>
-  <strong>CPF:</strong>
-  <%= @user.cpf %>
-</p>
+    <tr>
+      <td><b>Data de Nascimento:</b></td><td> <%= @user.birthday %></td>
+    </tr>
 
-<p>
-  <strong>Aprovação:</strong>
-  <%= @user.approval ? "Aceito" : "Pendente" %>
-</p>
+    <tr>
+      <td><b>Endereço:</b></td><td><%= @user.address %></td>
+    </tr>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+    <tr>
+      <td><b>CPF:</b></td><td><%= @user.cpf %></td>
+    </tr>
 
+    <tr>
+      <td><b>Aprovação:</b></td><td><%= @user.approval ? "Aceito" : "Pendente" %></td>
+    </tr>
+
+    <tr>
+      <td><b>Membro desde:</b></td><td><%= @user.created_at.strftime(" %d/%m/%Y ") %></td>
+    </tr>
+  </tbody>
+</table>
 
 <% if @user.approval == false && current_user.admin? %>
         <p>
-          <strong>Documento de Aprovação:</strong>
+          <b>Documento de Aprovação:</b>
           <% if @user.validation_image.nil? %>
             <%= image_tag(@user.validation_image , class: 'img-responsive question-img') %>
           <% else %>
@@ -49,6 +52,6 @@
           <% end %>
         </p>
         
-        <td><%= link_to 'Aprovar', approve_user_path(@user), data: { confirm: 'Tem certeza que deseja aprovar o usuário?' }  %></td>   
+        <td><%= link_to 'Aprovar', approve_user_path(@user), data: { confirm: 'Tem certeza que deseja aprovar o usuário?' }, class: "btn waves-effect waves-light green btn-edit"  %></td>   
 <% end %>
 
