@@ -3,7 +3,13 @@ class User < ActiveRecord::Base
 	require "cpf_cnpj"
 	require "bcrypt"
 
+    belongs_to :profile
+
 	has_secure_password
+
+    has_attached_file :validation_image
+    validates_attachment :validation_image,
+        content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
 
 	before_save	{	self.email	=	email.downcase	}
 

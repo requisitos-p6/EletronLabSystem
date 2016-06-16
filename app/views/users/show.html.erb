@@ -1,39 +1,54 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nome:</strong>
   <%= @user.name %>
 </p>
 
 <p>
-  <strong>Email:</strong>
+  <strong>E-mail:</strong>
   <%= @user.email %>
 </p>
 
 <p>
-  <strong>Birthday:</strong>
+  <strong>Data de Nascimento:</strong>
   <%= @user.birthday %>
 </p>
 
 <p>
-  <strong>Address:</strong>
+  <strong>Endereço:</strong>
   <%= @user.address %>
 </p>
 
 <p>
-  <strong>Nickname:</strong>
+  <strong>Nome de usuário:</strong>
   <%= @user.nickname %>
 </p>
 
 <p>
-  <strong>Cpf:</strong>
+  <strong>CPF:</strong>
   <%= @user.cpf %>
 </p>
 
 <p>
-  <strong>Approval:</strong>
-  <%= @user.approval %>
+  <strong>Aprovação:</strong>
+  <%= @user.approval ? "Aceito" : "Pendente" %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+
+
+<% if @user.approval == false && current_user.admin? %>
+        <p>
+          <strong>Documento de Aprovação:</strong>
+          <% if @user.validation_image.nil? %>
+            <%= image_tag(@user.validation_image , class: 'img-responsive question-img') %>
+          <% else %>
+            <%= "Não possui" %>
+          <% end %>
+        </p>
+        
+        <td><%= link_to 'Aprovar', approve_user_path(@user), data: { confirm: 'Tem certeza que deseja aprovar o usuário?' }  %></td>   
+<% end %>
+

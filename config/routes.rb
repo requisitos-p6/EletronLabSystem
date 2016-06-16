@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   resources :scales
+  resources :profiles
+
   get 'singup' => 'users#new'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
