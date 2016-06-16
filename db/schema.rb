@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160614001017) do
+ActiveRecord::Schema.define(version: 20160615180314) do
+
+  create_table "scales", force: :cascade do |t|
+    t.string   "name_employee"
+    t.string   "day"
+    t.integer  "shechule_initial_hours"
+    t.integer  "schedule_initial_minutes"
+    t.integer  "schedule_final_hours"
+    t.integer  "schedule_final_minutes"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

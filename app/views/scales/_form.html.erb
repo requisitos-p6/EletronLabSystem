@@ -1,0 +1,39 @@
+<%= form_for(@scale) do |f| %>
+  <% if @scale.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@scale.errors.count, "error") %> prohibited this scale from being saved:</h2>
+
+      <ul>
+      <% @scale.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label(:name_employee,"Nome do funcionário") %><br>
+    <%= f.text_field :name_employee %>
+  </div>
+  <div class="field">
+    <%= f.label(:day, "Dia da semana") %><br>
+    <%= f.text_field :day %>
+  </div>
+  <div class="field">
+    <%= f.label(:shechule_initial_hours,"Hora Ínicio") %><br>
+    <%= f.number_field :shechule_initial_hours %>
+    <%= f.label(:schedule_initial_minutes, "Minuto Ínicio")%><br>
+    <%= f.number_field :schedule_initial_minutes %>
+  </div>
+  <div class="field">
+    <%= f.label :schedule_final_hours %><br>
+    <%= f.number_field :schedule_final_hours %>
+  </div>
+  <div class="field">
+    <%= f.label :schedule_final_minutes %><br>
+    <%= f.number_field :schedule_final_minutes %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

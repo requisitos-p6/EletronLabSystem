@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Scales</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Segunda</th>
+      <th>Terça</th>
+      <th>Quarta</th>
+      <th>Quinta</th>
+      <th>Sexta</th>
+      <th>Sábado</th>
+      <th>Domingo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @scales.each do |scale| %>
+      <tr>
+        <% if scale.day=="Segunda"%>
+          <td><%= scale.name_employee  %></td> 
+        <% else %>
+          <td></td>   
+        <%end%>
+
+        <% if scale.day=="Terça"%>
+          <td><%= scale.name_employee %></td>
+        <% else %>
+          <td></td>   
+        <%end%>
+
+        <% if scale.day=="Quarta"%>
+          <td><%= scale.name_employee%></td> 
+        <% else %>
+          <td></td>   
+        <%end%>
+
+        <% if scale.day=="Quinta"%>
+          <td><%= scale.name_employee  %></td> 
+        <% else %>
+          <td></td>   
+        <%end%>
+
+        <% if scale.day=="Sexta"%>
+          <td><%= scale.name_employee  %></td> 
+        <% else %>
+          <td></td>   
+        <%end%>
+
+        <% if scale.day=="Sábado"%>
+          <td><%= scale.name_employee %></td> 
+        <% else %>
+          <td></td>   
+        <%end%>
+        
+        <% if scale.day=="Domingo"%>
+          <td><%= scale.name_employee %></td> 
+        <% else %>
+          <td></td>   
+        <%end%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Scale', new_scale_path %>

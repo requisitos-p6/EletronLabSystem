@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name_employee: MyString
+  day: MyString
+  shechule_initial_hours: 1
+  schedule_initial_minutes: 1
+  schedule_final_hours: 1
+  schedule_final_minutes: 1
+
+two:
+  name_employee: MyString
+  day: MyString
+  shechule_initial_hours: 1
+  schedule_initial_minutes: 1
+  schedule_final_hours: 1
+  schedule_final_minutes: 1

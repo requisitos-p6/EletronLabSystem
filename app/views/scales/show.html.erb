@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name employee:</strong>
+  <%= @scale.name_employee %>
+</p>
+
+<p>
+  <strong>Day:</strong>
+  <%= @scale.day %>
+</p>
+
+<p>
+  <strong>Shechule initial hours:</strong>
+  <%= @scale.shechule_initial_hours %>
+</p>
+
+<p>
+  <strong>Schedule initial minutes:</strong>
+  <%= @scale.schedule_initial_minutes %>
+</p>
+
+<p>
+  <strong>Schedule final hours:</strong>
+  <%= @scale.schedule_final_hours %>
+</p>
+
+<p>
+  <strong>Schedule final minutes:</strong>
+  <%= @scale.schedule_final_minutes %>
+</p>
+
+<%= link_to 'Edit', edit_scale_path(@scale) %> |
+<%= link_to 'Back', scales_path %>
