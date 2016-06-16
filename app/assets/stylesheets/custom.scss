@@ -15,7 +15,7 @@
   font-style: normal;
   font-size: 24px;
   line-height: 1;
-  letter-spacing: normal;
+  letter-spacing: nowrap;
   text-transform: none;
   display: inline-block;
   white-space: nowrap;
@@ -25,6 +25,14 @@
   -webkit-font-smoothing: antialiased;
 }
 
+
+.btn, .btn-large {
+    height: 40px;
+    position: fixed;
+    top: 55%;
+    left: 45%;
+}
+
 /* Custom Stylesheet */
 /**
  * Use this file to override Materialize files so you can update
@@ -32,6 +40,11 @@
  *
  * Made By MaterializeCSS.com
  */
+
+/*Add shadow to h1 fonts.*/
+h1 {
+    text-shadow: 2px 2px #88C665;
+}
 
 nav ul a,
 nav .brand-logo {
@@ -98,4 +111,8 @@ footer {
   &.info { @extend .blue-grey.lighten-4;}
   &.warning { @extend .yellow.lighten-4;}
   &.danger { @extend .red.lighten-4;}
+}
+
+img#logo {
+  margin-right: 10px;
 }

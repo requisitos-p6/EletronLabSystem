@@ -1,19 +1,24 @@
     <nav class="white" role="navigation">
-      <div class="nav-wrapper container">
-        <%= link_to 'Home', root_path, class: 'brand-logo' %>
+      <div class="nav-wrapper container", style="text-align:left">
+      <a href="http://eletronjun.com.br/">
+       <%= image_tag 'eletronjun.png', id: 'logo', alt: 'eletronjun', height: '60' , width:'300' %> </a>
         <ul class="right hide-on-med-and-down">
           <% if logged_in? %>
+            <li><%= link_to 'Home', root_path%></li>
             <li><%= link_to 'Minha Conta',    user_path(current_user) %></li>
             <li><%= link_to 'Logout',    logout_path, method: :destroy %></li>
           <% else %>
+          <li><%= link_to 'Home', root_path %></li>
             <li><%= link_to 'Login',    login_path %></li>
           <% end %>
         </ul>
         <ul id="nav-mobile" class="side-nav">
           <% if logged_in? %>
+          <li><%= link_to 'Home', root_path %></li>
             <li><%= link_to 'Minha Conta',    user_path(current_user) %></li>
             <li><%= link_to 'Logout',    logout_path, method: :destroy %></li>
             <% else %>
+            <li><%= link_to 'Home', root_path %></li>
               <li><%= link_to 'Login',    login_path %></li>
           <% end %>
         </ul>
