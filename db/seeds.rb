@@ -6,7 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-one_date = Date.new(2016,12,1)
+# Simple user to sistem.
 user1 = User.create(name: 'Usuário1', email: "usuario1@email.com",
- birthday: one_date, address: "Endereço do usuário1.",
- nickname: "Apelido do usuário1", cpf: "000.000.000-01")
+ birthday: Date.new(2016,12,1), address: "Endereço do usuário1.",
+ nickname: "usuario1", cpf: "04510241178", admin: false, password: "senha123",
+ password_confirmation: "senha123")
+
+# A admin user.
+admin = User.create(name: 'Administrador', email: "admin@email.com",
+ birthday: Date.new(2016,12,2), address: "Endereço do administrador.",
+ nickname: "admin", cpf: "04510241178", admin: true,
+ password: "senha123", password_confirmation: "senha123")
