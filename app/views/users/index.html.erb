@@ -1,45 +1,11 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+<center>
+  <p id="notice"><%= notice %></p>
 
-<% if logged_in? and @current_user.admin == true %>
+  <% if logged_in? and @current_user.admin == true %>
 
-<h1>Usuários</h1>
+  <h1>Usuários</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Birthday</th>
-      <th>Address</th>
-      <th>Nickname</th>
-      <th>Cpf</th>
-      <th>Aprovação</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.birthday %></td>
-        <td><%= user.address %></td>
-        <td><%= user.nickname %></td>
-        <td><%= user.cpf %></td>
-        <td><%= user.approval %></td>
-        <td><%= link_to 'Mostrar', user %></td>
-        <td><%= link_to 'Editar', edit_user_path(user) %></td>
-        <td><%= link_to 'Deletar', user, method: :delete, data: { confirm: 'Tem certeza que deseja deletar o usuário?' } %></td>
-        <% if user.approval == false %>
-        <td><%= link_to 'Aprovar', approve_user_path(user), data: { confirm: 'Tem certeza que deseja aprovar o usuário?' }  %></td>   
-        <% end %>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<% elsif logged_in? and @current_user.admin == false %>
   <table>
     <thead>
       <tr>
@@ -53,16 +19,55 @@
         <th colspan="3"></th>
       </tr>
     </thead>
+
     <tbody>
-      <td><%= @current_user.name %></td>
-      <td><%= @current_user.email %></td>
-      <td><%= @current_user.birthday %></td>
-      <td><%= @current_user.address %></td>
-      <td><%= @current_user.nickname %></td>
-      <td><%= @current_user.cpf %></td>
-      <td><%= link_to 'Destroy', @current_user, method: :delete, data: { confirm: 'Tem certeza que deseja deletar o seu perfil?' } %></td>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.birthday %></td>
+          <td><%= user.address %></td>
+          <td><%= user.nickname %></td>
+          <td><%= user.cpf %></td>
+          <td><%= user.approval %></td>
+          <td><%= link_to 'Mostrar', user, class: "waves-effect waves-teal btn-flat btn-sm" %></td>
+          <td><%= link_to 'Editar', edit_user_path(user), class: "waves-effect waves-teal btn-flat btn-sm" %></td>
+          <td><%= link_to 'Deletar', user, method: :delete, data: { confirm: 'Tem certeza que deseja deletar o usuário?' },
+          class: "waves-effect waves-teal btn-flat btn-sm" %></td>
+          <% if user.approval == false %>
+          <td><%= link_to 'Aprovar', approve_user_path(user), data: { confirm: 'Tem certeza que deseja aprovar o usuário?' }, class: "waves-effect waves-teal btn-flat btn-sm"  %></td>   
+          <% end %>
+      </tr>
+      <% end %>
     </tbody>
   </table>
-<% end %>
-<br>
-<%= link_to 'New User', new_user_path %>
+
+  <% elsif logged_in? and @current_user.admin == false %>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Birthday</th>
+          <th>Address</th>
+          <th>Nickname</th>
+          <th>Cpf</th>
+          <th>Aprovação</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <td><%= @current_user.name %></td>
+        <td><%= @current_user.email %></td>
+        <td><%= @current_user.birthday %></td>
+        <td><%= @current_user.address %></td>
+        <td><%= @current_user.nickname %></td>
+        <td><%= @current_user.cpf %></td>
+        <td><%= link_to 'Destroy', @current_user, method: :delete, data: { confirm: 'Tem certeza que deseja deletar o seu perfil?' } %></td>
+      </tbody>
+    </table>
+  <% end %>
+  <br>
+  <%= link_to 'New User', new_user_path, class: "waves-effect waves-teal btn-flat btn-sm"%>
+</center>
+</div>

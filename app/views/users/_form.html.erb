@@ -1,3 +1,5 @@
+<div class="container">
+<center>
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -21,7 +23,7 @@
   </div>
   <div class="field">
     <%= f.label(:birthday, "Aniversário") %><br>
-    <%= f.date_select :birthday %>
+    <%= f.text_field :birthday %>
   </div>
   <div class="field">
     <%= f.label(:address, "Endereço") %><br>
@@ -32,14 +34,12 @@
     <div class="browser-default">
       <%= f.label(:address, "Perfil") %>
       <%= f.collection_select :profile_id, @profiles, :id, :name, { prompt: "Escolha um Perfil" }, class: "browser-default" %>
+      <br>
     </div>
-  
+    <!--browse image of user.-->
     <div>
-      <p>
-        <%= f.label :validation_image, "Foto de Validação de Usuário" %>
-      </p>
       <span class="btn btn-default btn-file">
-        Browse<%= f.file_field :validation_image, class: 'form-control' %>
+        <%= f.file_field :validation_image, class: 'form-control' %>
       </span>
     </div>
   <% end %>
@@ -65,3 +65,5 @@
     <%= f.submit("Enviar") %>
   </div>
 <% end %>
+</center>
+</div>

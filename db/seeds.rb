@@ -16,4 +16,4 @@ user1 = User.create(name: 'Usuário1', email: "usuario1@email.com",
 admin = User.create(name: 'Administrador', email: "admin@email.com",
  birthday: Date.new(2016,12,2), address: "Endereço do administrador.",
  nickname: "admin", cpf: "04510241178", admin: true,
- password: "senha123", password_confirmation: "senha123")
+ password: "senha123", password_confirmation: "senha123", approval: true)
