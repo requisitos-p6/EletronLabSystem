@@ -43,12 +43,6 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
  *
  * Made By MaterializeCSS.com
  */
-
-/*Add shadow to h1 fonts.*/
-h1 {
-    text-shadow: 2px 2px #88C665;
-}
-
 nav ul a,
 nav .brand-logo {
   color: #444;
@@ -97,21 +91,20 @@ p {
 
 /*Chenga the value of .teal to a gray color*/
 .teal {
-  background-color: #88C665 !important;
+  background-color: #373435 !important;
 }
 
-footer.page-footer {
-  margin-top: 20px;
-  padding-top: 20px;
-  background-color: #88C665;
-}
-
-footer.page-footer .footer-copyright {
+/*Change footer here.*/
+footer {
+  background-color: #373435;
   overflow: hidden;
   height: 50px;
   line-height: 50px;
-  color: rgba(255, 255, 255, 0.8);
-  background-color: #88C665;
+  background-color: #373435;
+  width:100%;
+  /*This make the footer always in the bottom*/
+  position: fixed; 
+  bottom: 0px;
 }
 
 /* alerts */

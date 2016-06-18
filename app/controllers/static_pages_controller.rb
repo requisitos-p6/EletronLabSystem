@@ -3,10 +3,10 @@ class StaticPagesController < ApplicationController
   end
 
   def alerts
-    flash[:success] = 'Success!'
-    flash[:info] = 'Info!'
-    flash[:warning] = 'Warning!'
-    flash[:danger] = 'Danger!'
+    flash[:success] = 'Successo!'
+    flash[:info] = 'Informação!'
+    flash[:warning] = 'Erro!'
+    flash[:danger] = 'Problema!'
   end
 
   def parallax

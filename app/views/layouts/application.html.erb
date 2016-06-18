@@ -14,7 +14,7 @@
     <%= yield %>
     <!--This line show an error in view-->
     <!--<%= render 'layouts/debug' if Rails.env.development? %>-->
-<!-- <%= render 'layouts/footer' %> -->
+<%= render 'layouts/footer' %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>
