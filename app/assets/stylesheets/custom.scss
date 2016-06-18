@@ -95,18 +95,23 @@ p {
   font-size: inherit;
 }
 
-footer.page-footer {
-  margin: 0;
+/*Chenga the value of .teal to a gray color*/
+.teal {
+  background-color: #88C665 !important;
 }
 
-footer {
-  background-color: #fff;
-  a {
-    @extend .grey-text.text-lighten-3;
-    &:hover {
-      @extend .grey-text.text-lighten-1;
-    }
-  }
+footer.page-footer {
+  margin-top: 20px;
+  padding-top: 20px;
+  background-color: #88C665;
+}
+
+footer.page-footer .footer-copyright {
+  overflow: hidden;
+  height: 50px;
+  line-height: 50px;
+  color: rgba(255, 255, 255, 0.8);
+  background-color: #88C665;
 }
 
 /* alerts */
