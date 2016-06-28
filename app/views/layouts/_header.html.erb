@@ -9,6 +9,7 @@
 
         <% if current_user.admin? %>
           <li><%= link_to 'Usuários',    users_path, class: "waves-effect waves-teal btn-flat btn-sm" %></li>
+          <li><%= link_to 'Escalas',    scales_path, class: "waves-effect waves-teal btn-flat btn-sm" %></li>
         <% end %>
 
         <li><%= link_to 'Minha Conta',    user_path(current_user), class: "waves-effect waves-teal btn-flat btn-sm" %></li>

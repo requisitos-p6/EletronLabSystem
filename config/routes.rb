@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :profiles
 
   get 'signup' => 'users#new'
+  get 'scales' => 'scales#show'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   post 'logout' => 'sessions#destroy'
